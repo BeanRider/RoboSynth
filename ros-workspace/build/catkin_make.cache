@@ -1,0 +1,2 @@
+tutorial_server
+-DCATKIN_DEVEL_PREFIX=/home/redbeans/robotics/ros-workspace/devel -DCMAKE_INSTALL_PREFIX=/home/redbeans/robotics/ros-workspace/install -G Unix Makefiles

@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/redbeans/robotics/ros-workspace/devel/setup.sh
