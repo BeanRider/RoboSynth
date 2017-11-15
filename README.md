@@ -1,7 +1,7 @@
 # RoboSynth
 
 # ROS Server
-To build the server:
+To build the packages:
 run `catkin_make`
 
 To start ROS core framework:
