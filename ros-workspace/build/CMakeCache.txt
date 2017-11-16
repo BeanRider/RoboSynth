@@ -246,11 +246,104 @@ _CATKIN_GTEST_INCLUDE:FILEPATH=/usr/include/gtest/gtest.h
 //Path to a file.
 _CATKIN_GTEST_SRC:FILEPATH=/usr/src/gtest/src/gtest.cc
 
+//The directory containing a CMake configuration file for actionlib.
+actionlib_DIR:PATH=/opt/ros/lunar/share/actionlib/cmake
+
+//The directory containing a CMake configuration file for actionlib_msgs.
+actionlib_msgs_DIR:PATH=/opt/ros/lunar/share/actionlib_msgs/cmake
+
+//Value Computed by CMake
+baxter_common_BINARY_DIR:STATIC=/home/redbeans/robotics/ros-workspace/build/baxter_common/baxter_common
+
+//Value Computed by CMake
+baxter_common_SOURCE_DIR:STATIC=/home/redbeans/robotics/ros-workspace/src/baxter_common/baxter_common
+
+//Value Computed by CMake
+baxter_core_msgs_BINARY_DIR:STATIC=/home/redbeans/robotics/ros-workspace/build/baxter_common/baxter_core_msgs
+
+//The directory containing a CMake configuration file for baxter_core_msgs.
+baxter_core_msgs_DIR:PATH=/home/redbeans/robotics/ros-workspace/devel/share/baxter_core_msgs/cmake
+
+//Value Computed by CMake
+baxter_core_msgs_SOURCE_DIR:STATIC=/home/redbeans/robotics/ros-workspace/src/baxter_common/baxter_core_msgs
+
+//Value Computed by CMake
+baxter_description_BINARY_DIR:STATIC=/home/redbeans/robotics/ros-workspace/build/baxter_common/baxter_description
+
+//Value Computed by CMake
+baxter_description_SOURCE_DIR:STATIC=/home/redbeans/robotics/ros-workspace/src/baxter_common/baxter_description
+
+//Value Computed by CMake
+baxter_examples_BINARY_DIR:STATIC=/home/redbeans/robotics/ros-workspace/build/baxter_examples
+
+//Value Computed by CMake
+baxter_examples_SOURCE_DIR:STATIC=/home/redbeans/robotics/ros-workspace/src/baxter_examples
+
+//Value Computed by CMake
+baxter_interface_BINARY_DIR:STATIC=/home/redbeans/robotics/ros-workspace/build/baxter_interface
+
+//The directory containing a CMake configuration file for baxter_interface.
+baxter_interface_DIR:PATH=/home/redbeans/robotics/ros-workspace/devel/share/baxter_interface/cmake
+
+//Value Computed by CMake
+baxter_interface_SOURCE_DIR:STATIC=/home/redbeans/robotics/ros-workspace/src/baxter_interface
+
+//Value Computed by CMake
+baxter_maintenance_msgs_BINARY_DIR:STATIC=/home/redbeans/robotics/ros-workspace/build/baxter_common/baxter_maintenance_msgs
+
+//The directory containing a CMake configuration file for baxter_maintenance_msgs.
+baxter_maintenance_msgs_DIR:PATH=/home/redbeans/robotics/ros-workspace/devel/share/baxter_maintenance_msgs/cmake
+
+//Value Computed by CMake
+baxter_maintenance_msgs_SOURCE_DIR:STATIC=/home/redbeans/robotics/ros-workspace/src/baxter_common/baxter_maintenance_msgs
+
+//Value Computed by CMake
+baxter_sdk_BINARY_DIR:STATIC=/home/redbeans/robotics/ros-workspace/build/baxter/baxter_sdk
+
+//Value Computed by CMake
+baxter_sdk_SOURCE_DIR:STATIC=/home/redbeans/robotics/ros-workspace/src/baxter/baxter_sdk
+
+//Value Computed by CMake
+baxter_tools_BINARY_DIR:STATIC=/home/redbeans/robotics/ros-workspace/build/baxter_tools
+
+//Value Computed by CMake
+baxter_tools_SOURCE_DIR:STATIC=/home/redbeans/robotics/ros-workspace/src/baxter_tools
+
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/lunar/share/catkin/cmake
 
+//The directory containing a CMake configuration file for control_msgs.
+control_msgs_DIR:PATH=/opt/ros/lunar/share/control_msgs/cmake
+
 //The directory containing a CMake configuration file for cpp_common.
 cpp_common_DIR:PATH=/opt/ros/lunar/share/cpp_common/cmake
+
+//The directory containing a CMake configuration file for cv_bridge.
+cv_bridge_DIR:PATH=/opt/ros/lunar/share/cv_bridge/cmake
+
+//The directory containing a CMake configuration file for dynamic_reconfigure.
+dynamic_reconfigure_DIR:PATH=/opt/ros/lunar/share/dynamic_reconfigure/cmake
+
+//The directory containing a CMake configuration file for gencpp.
+gencpp_DIR:PATH=/opt/ros/lunar/share/gencpp/cmake
+
+//The directory containing a CMake configuration file for geneus.
+geneus_DIR:PATH=/opt/ros/lunar/share/geneus/cmake
+
+//The directory containing a CMake configuration file for genlisp.
+genlisp_DIR:PATH=/opt/ros/lunar/share/genlisp/cmake
+
+//The directory containing a CMake configuration file for genmsg.
+genmsg_DIR:PATH=/opt/ros/lunar/share/genmsg/cmake
+
+//The directory containing a CMake configuration file for gennodejs.
+gennodejs_DIR:PATH=/opt/ros/lunar/share/gennodejs/cmake
+
+//The directory containing a CMake configuration file for genpy.
+genpy_DIR:PATH=/opt/ros/lunar/share/genpy/cmake
+
+//The directory containing a CMake configuration file for geometry_msgs.
+geometry_msgs_DIR:PATH=/opt/ros/lunar/share/geometry_msgs/cmake
 
 //Value Computed by CMake
 gtest_BINARY_DIR:STATIC=/home/redbeans/robotics/ros-workspace/build/gtest
@@ -278,10 +371,19 @@ gtest_force_shared_crt:BOOL=OFF
 gtest_main_LIB_DEPENDS:STATIC=general;-lpthread;general;gtest;
 
 //Path to a library.
-lib:FILEPATH=/opt/ros/lunar/lib/libxmlrpcpp.so
+lib:FILEPATH=/opt/ros/lunar/lib/libdynamic_reconfigure_config_init_mutex.so
+
+//The directory containing a CMake configuration file for message_generation.
+message_generation_DIR:PATH=/opt/ros/lunar/share/message_generation/cmake
 
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/lunar/share/message_runtime/cmake
+
+//Value Computed by CMake
+rethink_ee_description_BINARY_DIR:STATIC=/home/redbeans/robotics/ros-workspace/build/baxter_common/rethink_ee_description
+
+//Value Computed by CMake
+rethink_ee_description_SOURCE_DIR:STATIC=/home/redbeans/robotics/ros-workspace/src/baxter_common/rethink_ee_description
 
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/lunar/share/rosconsole/cmake
@@ -304,14 +406,23 @@ rospy_DIR:PATH=/opt/ros/lunar/share/rospy/cmake
 //The directory containing a CMake configuration file for rostime.
 rostime_DIR:PATH=/opt/ros/lunar/share/rostime/cmake
 
+//The directory containing a CMake configuration file for sensor_msgs.
+sensor_msgs_DIR:PATH=/opt/ros/lunar/share/sensor_msgs/cmake
+
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/opt/ros/lunar/share/std_msgs/cmake
+
+//The directory containing a CMake configuration file for trajectory_msgs.
+trajectory_msgs_DIR:PATH=/opt/ros/lunar/share/trajectory_msgs/cmake
 
 //Value Computed by CMake
 tutorial_server_BINARY_DIR:STATIC=/home/redbeans/robotics/ros-workspace/build/tutorial_server
 
 //Value Computed by CMake
 tutorial_server_SOURCE_DIR:STATIC=/home/redbeans/robotics/ros-workspace/src/tutorial_server
+
+//The directory containing a CMake configuration file for xacro.
+xacro_DIR:PATH=/opt/ros/lunar/share/xacro/cmake
 
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=/opt/ros/lunar/share/xmlrpcpp/cmake
@@ -418,7 +529,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=12
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

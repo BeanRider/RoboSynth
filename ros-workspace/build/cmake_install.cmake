@@ -117,7 +117,16 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/redbeans/robotics/ros-workspace/build/gtest/cmake_install.cmake")
+  include("/home/redbeans/robotics/ros-workspace/build/baxter_common/baxter_common/cmake_install.cmake")
+  include("/home/redbeans/robotics/ros-workspace/build/baxter_common/baxter_description/cmake_install.cmake")
+  include("/home/redbeans/robotics/ros-workspace/build/baxter/baxter_sdk/cmake_install.cmake")
+  include("/home/redbeans/robotics/ros-workspace/build/baxter_common/rethink_ee_description/cmake_install.cmake")
+  include("/home/redbeans/robotics/ros-workspace/build/baxter_common/baxter_maintenance_msgs/cmake_install.cmake")
+  include("/home/redbeans/robotics/ros-workspace/build/baxter_common/baxter_core_msgs/cmake_install.cmake")
+  include("/home/redbeans/robotics/ros-workspace/build/baxter_interface/cmake_install.cmake")
+  include("/home/redbeans/robotics/ros-workspace/build/baxter_tools/cmake_install.cmake")
   include("/home/redbeans/robotics/ros-workspace/build/tutorial_server/cmake_install.cmake")
+  include("/home/redbeans/robotics/ros-workspace/build/baxter_examples/cmake_install.cmake")
 
 endif()
 
