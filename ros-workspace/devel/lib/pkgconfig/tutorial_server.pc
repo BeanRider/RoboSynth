@@ -1,8 +1,0 @@
-prefix=/home/redbeans/robotics/ros-workspace/devel
-
-Name: tutorial_server
-Description: Description of tutorial_server
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/redbeans/robotics/ros-workspace/devel/lib 
-Requires: 
