@@ -29,3 +29,10 @@ run `rosrun tutorial_server talker.py`
 
 ### 6 the subscriber (listens for the notes):
 run `rosrun tutorial_server listener.py`
+
+# running the robot in simulation
+./baxter_sim
+roslaunch baxter_gazebo baxter_world.launch
+rosrun baxter_tools enable_robot.py -e
+rosrun baxter_interface joint_trajectory_action_server.py
+roslaunch baxter_moveit_config baxter_grippers.launch

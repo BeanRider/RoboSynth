@@ -1,10 +1,9 @@
 import argparse
-import sys
-import time
-
-import rospy
 import baxter_interface
 import copy
+import rospy
+import sys
+import time
 
 from geometry_msgs.msg import (
         PoseStamped,
@@ -20,8 +19,12 @@ from baxter_core_msgs.srv import (
         SolvePositionIKRequest,
         )
 
+""" class that handles robot movement relative to the keyboard """
+
+""" The width of a key on the keyboard, in meters"""
 keyWidth = 0.1222
 
+""" amount to press down on the key, in meters"""
 pressHeight = 0.3
 
 lowE = PoseStamped(
@@ -41,16 +44,19 @@ lowE = PoseStamped(
 	)
 )
 
+""" converts and index of a key to a pose"""
 def index2position(i):
     pose = copy.deepcopy(lowE)
     pose.pose.position.y  = pose.pose.position.y + keyWidth * i
     return pose
 
+"""converts a pose above the key to a pose pressing the key down"""
 def pressedPos(pos):
     pose = copy.deepcopy(pos)
     pose.pose.position.z  = pose.pose.position.z - pressHeight
     return pose
 
+""" Gets and ik solution for a given pose"""
 def position2IK(pos):
     print 'finding ik'
     ns = "ExternalTools/left/PositionKinematicsNode/IKService"
@@ -77,6 +83,7 @@ def position2IK(pos):
  
     return limb_joints
 
+""" moves to a pose ( ik solution ) """
 def movePose(pose):
         rospy.init_node("rsdk_ik_service_client")
         arm = baxter_interface.Limb('left')
