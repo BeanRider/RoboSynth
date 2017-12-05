@@ -1,7 +1,8 @@
 import cv2
 import numpy as np
 
-def detect_notes(image_name='notes2.png'):
+
+def detect_notes_helper(blur, image_name='notes2.png'):
     """
     Uses OpenCV to detect notes from an image to return positions
     :param image_name:
@@ -78,7 +79,7 @@ def detect_notes(image_name='notes2.png'):
     # ==================================================================================================================
 
     # Blur the image
-    kernel = np.ones((20, 20), np.float32) / 400
+    kernel = np.ones((blur, blur), np.float32) / (blur * blur)
     img_notes = cv2.filter2D(img_notes, -1, kernel)
 
     params = cv2.SimpleBlobDetector_Params()
@@ -134,8 +135,7 @@ def detect_notes(image_name='notes2.png'):
         positions.append(note_pos)
         tones.append(frequencies[note_pos])
 
-    cv2.imshow('notes', img_notes_color)
-    cv2.waitKey(0)
+    show(img_notes_color)
     return tones, positions
 
 
@@ -144,4 +144,23 @@ def show(to_show):
     cv2.waitKey(0)
 
 
-print detect_notes()
+def detect_notes(image_name='notes2.png'):
+    return detect_notes_helper(27, image_name)
+
+detect_notes()
+
+# for b in range(5, 70):
+#     correct_for_notes2 = [5, 4, 3, 5, 4, 3, 5, 3, 4, 5, 7, 3, 4, 5, 6]
+#     (one, two) = detect_notes_helper(b, "notes2.png")
+#     # num_matches = 0
+#     # for note_i in range(len(correct_for_notes2)):
+#     #     if note_i < len(two):
+#     #         if correct_for_notes2[note_i] == two[note_i]:
+#     #             num_matches += 1
+#     #     else:
+#     #         break
+#     # print "{} found for blur of {}".format(len(two), b)
+#     print "{}".format(len(two))
+
+
+
