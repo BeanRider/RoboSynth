@@ -108,8 +108,8 @@ def detect_notes_helper(blur, image_name='notes2.png'):
     tones = list()
     positions = list()
 
-    for lineIdx in keypoints:
-        (note_x, note_y) = (lineIdx.pt[0], lineIdx.pt[1])
+    for kPoint in keypoints:
+        (note_x, note_y) = (kPoint.pt[0], kPoint.pt[1])
 
         cv2.circle(img_notes_color, (int(note_x), int(note_y)), 3, (255, 255, 0), -1)
 
