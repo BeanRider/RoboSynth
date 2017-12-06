@@ -22,7 +22,7 @@ from baxter_core_msgs.srv import (
 """ class that handles robot movement relative to the keyboard """
 
 """ The width of a key on the keyboard, in meters"""
-keyWidth = 0.1222
+keyWidth = 0.0222
 
 """ amount to press down on the key, in meters"""
 pressHeight = 0.3
@@ -36,10 +36,10 @@ lowE = PoseStamped(
 		z=0.1088352386502,
     		),
 	orientation=Quaternion(
-		x=-0.366894936773,
-		y=0.885980397775,
- 		z=0.108155782462,
-		w=0.262162481772,
+		x=0.0,
+		y=1.0,
+ 		z=0.0,
+		w=0.0,
 		),
 	)
 )
@@ -106,15 +106,15 @@ def ik_test(limb):
                 header=hdr,
                 pose=Pose(
                     position=Point(
-                        x=0.687579481614,
-                        y=0.1,
-                        z=0.1088352386502,
+                        x=0.8,
+                        y=0.3,
+                        z=-0.3,
                         ),
                     orientation=Quaternion(
-                        x=-0.366894936773,
-                        y=0.885980397775,
-                        z=0.108155782462,
-                        w=0.262162481772,
+                        x=1.0,
+                        y=0.0,
+                        z=0.0,
+                        w=0.0,
                         ),
                     ),
                 ),
@@ -122,7 +122,7 @@ def ik_test(limb):
                 header=hdr,
                 pose=Pose(
                     position=Point(
-                        x=0.656982770038,
+                        x=0.756982770038,
                         y=-0.852598021641,
                         z=0.0388609422173,
                         ),

@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/kluo/baxter/devel/setup.sh
+    local-name: /home/baxter/RoboSynth/ros-workspace/devel/setup.sh

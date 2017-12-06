@@ -6,9 +6,7 @@
 
 # This is a convenient script which will set up your ROS environment and
 # should be executed with every new instance of a shell in which you plan on
-# working with Baxter.
-
-# Clear any previously set your_ip/your_hostname
+# working with Baxter.  # Clear any previously set your_ip/your_hostname
 unset your_ip
 unset your_hostname
 #-----------------------------------------------------------------------------#
@@ -19,11 +17,12 @@ unset your_hostname
 # will be overwritten by any variables set here.
 
 # Specify Baxter's hostname
-baxter_hostname="localhost"
+baxter_hostname="011305P0011.local"
 
 # Set *Either* your computers ip address or hostname. Please note if using
 # your_hostname that this must be resolvable to Baxter.
-your_ip="localhost"
+#your_ip="129.10.113.202"
+your_ip="10.75.7.241"
 #your_hostname="my_computer.local"
 
 # Specify ROS distribution (e.g. indigo, hydro, etc.)

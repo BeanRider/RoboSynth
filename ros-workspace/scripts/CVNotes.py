@@ -1,8 +1,8 @@
 import cv2
 import numpy as np
+from itertools import product
 
-
-def detect_notes_helper(blur, image_name='notes2.png'):
+def detect_notes_helper(blur, image_name='notes2.jpg'):
     """
     Uses OpenCV to detect notes from an image to return positions
     :param image_name:
@@ -12,7 +12,7 @@ def detect_notes_helper(blur, image_name='notes2.png'):
     # ==================================================================================================================
     # Config
     # ==================================================================================================================
-    note_head_pixel_size = 10
+    note_head_pixel_size = 1
     frequencies = [349.2282, 329.6276, 293.6648, 261.6256, 246.9417, 220.0000, 195.9977, 174.6141, 164.8138, ]
 
     # ==================================================================================================================
@@ -20,6 +20,9 @@ def detect_notes_helper(blur, image_name='notes2.png'):
     # ==================================================================================================================
     img_notes_color = cv2.imread(image_name)
     img_notes = cv2.imread(image_name, 0)
+    clahe = cv2.createCLAHE(clipLimit=3., tileGridSize=(50,50))
+    img_notes = clahe.apply(img_notes)
+    show(img_notes)
 
     # ==================================================================================================================
     # Line detections and staff line removal
@@ -58,7 +61,7 @@ def detect_notes_helper(blur, image_name='notes2.png'):
                     cv2.circle(img_notes, (x_eraser, y_eraser), 5, (255, 0, 0), -1)
 
     # Check no-line image here:
-    # show(notes)
+    show(img_notes)
 
     # Combine lines by averaging the end points of pairs of nearby lines
     ledger_lines.sort(key=lambda x: (x[2] + x[3]) / 2)
@@ -81,12 +84,14 @@ def detect_notes_helper(blur, image_name='notes2.png'):
     # Blur the image
     kernel = np.ones((blur, blur), np.float32) / (blur * blur)
     img_notes = cv2.filter2D(img_notes, -1, kernel)
+    print "shoing notes"
+    show(img_notes)
 
     params = cv2.SimpleBlobDetector_Params()
     params.filterByArea = True
     params.filterByInertia = True
     params.filterByConvexity = True
-    params.minArea = 800
+    params.minArea = 8
     params.minInertiaRatio = 0.35
     params.minConvexity = .965
 
@@ -145,7 +150,8 @@ def show(to_show):
 
 
 def detect_notes(image_name='notes2.png'):
-    return detect_notes_helper(27, image_name)
+    # 27
+    return detect_notes_helper(5, image_name)
 
 detect_notes()
 
