@@ -1,14 +1,16 @@
 #!/usr/bin/env python
 import rospy
 from sensor_msgs.msg import Image
+import ik
 import cv2
 from cv_bridge import CvBridge, CvBridgeError
-
-def callback(data):
-    cv_image = CvBridge().imgmsg_to_cv2(data, desired_encoding='passthrough')
-    cv2.imshow('image', cv_image)
-    cv2.imwrite('notes2.png', cv_image)
-    cv2.waitKey(0)
+from geometry_msgs.msg import (
+        PoseStamped,
+        Pose,
+        Point,
+        Quaternion,
+)
+from std_msgs.msg import Header
     
 def listener():
 
@@ -17,12 +19,13 @@ def listener():
     # anonymous=True flag means that rospy will choose a unique
     # name for our 'listener' node so that multiple listeners can
     # run simultaneously.
-    rospy.init_node('music_reader', anonymous=True)
 
-    rospy.Subscriber("/cameras/left_hand_camera/image", Image, callback)
+    data = rospy.wait_for_message("/cameras/left_hand_camera/image", image)
+    cv_image = cvbridge().imgmsg_to_cv2(data, desired_encoding='passthrough')
+    cv2.imshow('image', cv_image)
+    cv2.imwrite('notes2.png', cv_image)
 
-    # spin() simply keeps python from exiting until this node is stopped
-    rospy.spin()
 
 if __name__ == '__main__':
     listener()
+

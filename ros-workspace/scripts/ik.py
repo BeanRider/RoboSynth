@@ -22,10 +22,10 @@ from baxter_core_msgs.srv import (
 """ class that handles robot movement relative to the keyboard """
 
 """ The width of a key on the keyboard, in meters"""
-keyWidth = 0.0222
+keyWidth = 0.0225
 
 """ amount to press down on the key, in meters"""
-pressHeight = 0.3
+pressHeight = 0.04
 
 lowE = PoseStamped(
         header=Header(stamp=None, frame_id='base'),
@@ -33,8 +33,7 @@ lowE = PoseStamped(
 	position=Point(
 		x=0.687579481614,
 		y=0.1,
-		z=0.1088352386502,
-    		),
+	        z=-0.09,),
 	orientation=Quaternion(
 		x=0.0,
 		y=1.0,
@@ -58,7 +57,6 @@ def pressedPos(pos):
 
 """ Gets and ik solution for a given pose"""
 def position2IK(pos):
-    print 'finding ik'
     ns = "ExternalTools/left/PositionKinematicsNode/IKService"
     iksvc = rospy.ServiceProxy(ns, SolvePositionIK)
     ikreq = SolvePositionIKRequest()
@@ -66,7 +64,6 @@ def position2IK(pos):
     ikreq.pose_stamp.append(pos)
 
     try:
-        print "calling service"
         rospy.wait_for_service(ns, 5.0)
         resp = iksvc(ikreq)
     except (rospy.ServiceException, rospy.ROSException), e:
@@ -74,7 +71,6 @@ def position2IK(pos):
         return 1
 
     if (resp.isValid[0]):
-        print("SUCCESS - Valid Joint Solution Found:")
         # Format solution into Limb API-compatible dictionary
         limb_joints = dict(zip(resp.joints[0].name, resp.joints[0].position))
 	return limb_joints
@@ -84,12 +80,11 @@ def position2IK(pos):
     return limb_joints
 
 """ moves to a pose ( ik solution ) """
-def movePose(pose):
+def movePose(pose, duration = 0.03):
         rospy.init_node("rsdk_ik_service_client")
         arm = baxter_interface.Limb('left')
-	timeout = time.clock() + 0.2
+	timeout = time.clock() + duration
 	while not rospy.is_shutdown() and time.clock() < timeout:
-		print time.clock() - timeout
         	arm.set_joint_positions(pose)
         	rospy.sleep(0.01)
 
@@ -107,14 +102,14 @@ def ik_test(limb):
                 pose=Pose(
                     position=Point(
                         x=0.8,
-                        y=0.3,
-                        z=-0.3,
+                        y=0.1,
+                        z=0.0,
                         ),
                     orientation=Quaternion(
-                        x=1.0,
-                        y=0.0,
-                        z=0.0,
-                        w=0.0,
+                        x=0.5,
+                        y=0.5,
+                        z=0.5,
+                        w=0.5,
                         ),
                     ),
                 ),
@@ -138,7 +133,6 @@ def ik_test(limb):
     ikreq.pose_stamp.append(poses[limb])
 
     try:
-        print "calling service"
         rospy.wait_for_service(ns, 5.0)
         resp = iksvc(ikreq)
     except (rospy.ServiceException, rospy.ROSException), e:
@@ -146,10 +140,8 @@ def ik_test(limb):
         return 1
 
     if (resp.isValid[0]):
-        print("SUCCESS - Valid Joint Solution Found:")
         # Format solution into Limb API-compatible dictionary
         limb_joints = dict(zip(resp.joints[0].name, resp.joints[0].position))
-        print limb_joints
         arm = baxter_interface.Limb('left')
 	while not rospy.is_shutdown():
         	arm.set_joint_positions(limb_joints)

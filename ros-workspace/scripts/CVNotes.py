@@ -84,7 +84,6 @@ def detect_notes_helper(blur, image_name='notes2.jpg'):
     # Blur the image
     kernel = np.ones((blur, blur), np.float32) / (blur * blur)
     img_notes = cv2.filter2D(img_notes, -1, kernel)
-    print "shoing notes"
     show(img_notes)
 
     params = cv2.SimpleBlobDetector_Params()
